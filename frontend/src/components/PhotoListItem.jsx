@@ -16,12 +16,12 @@ const PhotoListItem = ({ sampleDataForPhotoListItem }) => {
           alt={`user${urls.username}`}
           className="photo-list__user-profile "
         />
-        <p>{user.username}</p>
-        <p>
-          <span>{location.city}</span>
-          {location.country}
-          <span></span>
-        </p>
+        <div className="photo-list__user-info">
+          {user.name}
+          <div className="photo-list__user-location">
+            {location.city}, {location.country}
+          </div>
+        </div>
       </div>
     </div>
   );
