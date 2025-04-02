@@ -1,11 +1,11 @@
 import "../styles/PhotoListItem.scss";
 
 const PhotoListItem = (props) => {
-  const { urls, user, location, key } = props;
+  const { urls, user, location } = props.sampleDataForPhotoListItem;
 
   return (
     <section>
-      <img src={urls.regular} />
+      <img src={urls.regular} alt="photo of a cellphone screen" />
       <img src={user.profile} alt="photographer-pic" />
       <p>{user.username}</p>
       <p>
