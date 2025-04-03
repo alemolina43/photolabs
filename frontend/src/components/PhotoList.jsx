@@ -1,8 +1,7 @@
 import PhotoListItem from "./PhotoListItem";
 import "../styles/PhotoList.scss";
-import photos from "../mocks/photos";
 
-const PhotoList = () => {
+const PhotoList = ({ photos }) => {
   const parsedPhotos = photos.map((photoData) => (
     <PhotoListItem key={photoData.id} photoData={photoData} />
   ));

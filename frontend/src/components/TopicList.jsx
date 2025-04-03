@@ -1,8 +1,7 @@
 import "../styles/TopicList.scss";
 import TopicListItem from "./TopicListItem";
-import topics from "../mocks/topics";
 
-const TopicList = () => {
+const TopicList = ({ topics }) => {
   const parsedTopics = topics.map((topic) => (
     <TopicListItem key={topic.id} topic={topic} />
   ));
