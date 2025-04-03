@@ -1,10 +1,12 @@
 import "../styles/PhotoListItem.scss";
+import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = ({ sampleDataForPhotoListItem }) => {
   const { urls, user, location } = sampleDataForPhotoListItem;
 
   return (
     <div className="photo-list__item">
+      <PhotoFavButton />
       <img
         src={urls.regular}
         alt={urls.regular}

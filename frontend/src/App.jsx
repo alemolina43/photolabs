@@ -21,9 +21,9 @@ const sampleDataForPhotoListItem = {
 // Note: Rendering a single component to build components in isolation
 const App = () => {
   const photos = new Array(3).fill(sampleDataForPhotoListItem);
-  const parsedPhotos = photos.map((photo) => (
+  const parsedPhotos = photos.map((photo, index) => (
     <PhotoListItem
-      key={sampleDataForPhotoListItem.id}
+      key={index}
       sampleDataForPhotoListItem={sampleDataForPhotoListItem}
     />
   ));
