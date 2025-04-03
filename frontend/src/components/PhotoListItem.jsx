@@ -1,8 +1,8 @@
-import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
+import "../styles/PhotoListItem.scss";
 
-const PhotoListItem = ({ sampleDataForPhotoListItem }) => {
-  const { urls, user, location } = sampleDataForPhotoListItem;
+const PhotoListItem = ({ photoData }) => {
+  const { urls, user, location } = photoData;
 
   return (
     <div className="photo-list__item">
