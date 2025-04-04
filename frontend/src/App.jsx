@@ -18,12 +18,15 @@ const App = () => {
     }
   };
 
+  const isFavPhotoExist = favoritePhotos.length > 0; // Calculate isFavPhotoExist here
+
   return (
     <div className="App">
       <HomeRoute
         topics={topics}
         photos={photos}
         toggleFavorite={toggleFavorite}
+        isFavPhotoExist={isFavPhotoExist}
       />
     </div>
   );
