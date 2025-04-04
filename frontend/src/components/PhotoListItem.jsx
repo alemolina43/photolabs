@@ -2,7 +2,7 @@ import { useState } from "react";
 import PhotoFavButton from "./PhotoFavButton";
 import "../styles/PhotoListItem.scss";
 
-const PhotoListItem = ({ photoData, toggleFavorite, toggleDisplay }) => {
+const PhotoListItem = ({ photoData, toggleFavorite, openModal }) => {
   const { id, urls, user, location } = photoData;
   const [selected, setSelected] = useState(false);
 
@@ -12,7 +12,7 @@ const PhotoListItem = ({ photoData, toggleFavorite, toggleDisplay }) => {
   };
 
   const handlePhotoClick = () => {
-    toggleDisplay();
+    openModal(photoData);
   };
 
   return (

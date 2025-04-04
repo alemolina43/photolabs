@@ -7,8 +7,8 @@ import PhotoDetailsModal from "./routes/PhotoDetailsModal";
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
+  //state related to favorited photos
   const [favoritePhotos, setFavoritePhotos] = useState([]);
-
   const toggleFavorite = (photoId) => {
     if (favoritePhotos.includes(photoId)) {
       const updatedFavorites = favoritePhotos.filter((id) => id !== photoId);
@@ -18,13 +18,20 @@ const App = () => {
       setFavoritePhotos(updatedFavorites);
     }
   };
-
   const isFavPhotoExist = favoritePhotos.length > 0; //if array.length is bigger than 0
 
+  //state related to the modal
   const [displayModal, setDisplayModal] = useState(false);
 
-  const toggleDisplay = () => {
-    setDisplayModal((prevSelected) => !prevSelected);
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const openModal = (photo) => {
+    setSelectedPhoto(photo);
+    setDisplayModal(true);
+  };
+
+  const closeModal = () => {
+    setDisplayModal(false);
+    setSelectedPhoto(null);
   };
 
   return (
@@ -34,9 +41,14 @@ const App = () => {
         photos={photos}
         toggleFavorite={toggleFavorite}
         isFavPhotoExist={isFavPhotoExist}
-        toggleDisplay={toggleDisplay}
+        openModal={openModal}
       />
-      {displayModal && <PhotoDetailsModal toggleDisplay={toggleDisplay} />}
+      {displayModal && (
+        <PhotoDetailsModal
+          selectedPhoto={selectedPhoto}
+          closeModal={closeModal}
+        />
+      )}
     </div>
   );
 };

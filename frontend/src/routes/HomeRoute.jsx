@@ -7,7 +7,7 @@ const HomeRoute = ({
   photos,
   toggleFavorite,
   isFavPhotoExist,
-  toggleDisplay,
+  openModal,
 }) => {
   return (
     <div className="home-route">
@@ -15,7 +15,7 @@ const HomeRoute = ({
       <PhotoList
         photos={photos}
         toggleFavorite={toggleFavorite}
-        toggleDisplay={toggleDisplay}
+        openModal={openModal}
       />
     </div>
   );
