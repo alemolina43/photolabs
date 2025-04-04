@@ -18,7 +18,7 @@ const App = () => {
     }
   };
 
-  const isFavPhotoExist = favoritePhotos.length > 0; // Calculate isFavPhotoExist here
+  const isFavPhotoExist = favoritePhotos.length > 0; //if array.length is bigger than 0
 
   return (
     <div className="App">
