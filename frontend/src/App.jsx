@@ -36,7 +36,7 @@ const App = () => {
         isFavPhotoExist={isFavPhotoExist}
         toggleDisplay={toggleDisplay}
       />
-      {displayModal && <PhotoDetailsModal />}
+      {displayModal && <PhotoDetailsModal toggleDisplay={toggleDisplay} />}
     </div>
   );
 };

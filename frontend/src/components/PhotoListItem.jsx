@@ -11,12 +11,12 @@ const PhotoListItem = ({ photoData, toggleFavorite, toggleDisplay }) => {
     toggleFavorite(id);
   };
 
-  const handleClick = () => {
+  const handlePhotoClick = () => {
     toggleDisplay();
   };
 
   return (
-    <div className="photo-list__item" onClick={handleClick}>
+    <div className="photo-list__item" onClick={handlePhotoClick}>
       <PhotoFavButton selected={selected} changeState={changeState} />
       <img
         src={urls.regular}
