@@ -3,6 +3,7 @@ import topics from "./mocks/topics";
 import photos from "./mocks/photos";
 import "./App.scss";
 import HomeRoute from "./routes/HomeRoute";
+import PhotoDetailsModal from "./routes/PhotoDetailsModal";
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
@@ -20,6 +21,12 @@ const App = () => {
 
   const isFavPhotoExist = favoritePhotos.length > 0; //if array.length is bigger than 0
 
+  const [displayModal, setDisplayModal] = useState(false);
+
+  const toggleDisplay = () => {
+    setDisplayModal((prevSelected) => !prevSelected);
+  };
+
   return (
     <div className="App">
       <HomeRoute
@@ -27,7 +34,9 @@ const App = () => {
         photos={photos}
         toggleFavorite={toggleFavorite}
         isFavPhotoExist={isFavPhotoExist}
+        toggleDisplay={toggleDisplay}
       />
+      {displayModal && <PhotoDetailsModal />}
     </div>
   );
 };
