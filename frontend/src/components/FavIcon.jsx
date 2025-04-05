@@ -1,5 +1,6 @@
 const FavIcon = ({ displayAlert, selected, changeState }) => {
-  const handleClick = () => {
+  const handleClick = (event) => {
+    event.stopPropagation();
     changeState();
   };
 

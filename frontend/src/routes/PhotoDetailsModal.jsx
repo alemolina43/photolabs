@@ -3,7 +3,7 @@ import closeSymbol from "../assets/closeSymbol.svg";
 import MainPhotoModal from "../components/MainPhotoModal";
 import SimilarPhotoList from "../components/SimilarPhotoList";
 
-const PhotoDetailsModal = ({ selectedPhoto, closeModal }) => {
+const PhotoDetailsModal = ({ selectedPhoto, closeModal, toggleFavorite }) => {
   const handleButtonClick = () => {
     closeModal();
   };
@@ -19,13 +19,19 @@ const PhotoDetailsModal = ({ selectedPhoto, closeModal }) => {
         </button>
 
         <div className="photo-details-modal__images">
-          <MainPhotoModal selectedPhoto={selectedPhoto} />
+          <MainPhotoModal
+            selectedPhoto={selectedPhoto}
+            toggleFavorite={toggleFavorite}
+          />
         </div>
         <header className="photo-details-modal__header ">
           <p>Similar Photos</p>
         </header>
 
-        <SimilarPhotoList similarPhotosObject={selectedPhoto.similar_photos} />
+        <SimilarPhotoList
+          similarPhotosObject={selectedPhoto.similar_photos}
+          toggleFavorite={toggleFavorite}
+        />
       </div>
     </>
   );

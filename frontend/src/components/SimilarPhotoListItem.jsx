@@ -1,11 +1,19 @@
+import { useState } from "react";
 import PhotoFavButton from "./PhotoFavButton";
+import "../styles/PhotoListItem.scss";
 
-const SimilarPhotoListItem = ({ similarPhoto }) => {
+const SimilarPhotoListItem = ({ similarPhoto, toggleFavorite }) => {
   const { id, urls, user, location } = similarPhoto;
+  const [selected, setSelected] = useState(false);
+
+  const changeState = () => {
+    setSelected((prevSelected) => !prevSelected);
+    toggleFavorite(id);
+  };
 
   return (
     <div className="photo-list__item">
-      <PhotoFavButton />{" "}
+      <PhotoFavButton selected={selected} changeState={changeState} />
       <img
         src={urls.thumb || urls.small || urls.regular}
         alt={`Similar to ${id}`}
