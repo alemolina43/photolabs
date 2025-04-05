@@ -46,6 +46,7 @@ const App = () => {
       {displayModal && (
         <PhotoDetailsModal
           selectedPhoto={selectedPhoto}
+          favoritePhotos={favoritePhotos}
           toggleFavorite={toggleFavorite}
           closeModal={closeModal}
         />
