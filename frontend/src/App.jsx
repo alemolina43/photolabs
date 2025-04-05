@@ -7,15 +7,8 @@ import "./App.scss";
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
-  const {
-    favoritePhotos,
-    displayModal,
-    isFavPhotoExist,
-    selectedPhoto,
-    updateToFavPhotoIds,
-    openModal,
-    closeModal,
-  } = useApplicationData();
+  const { state, isFavPhotoExist, updateToFavPhotoIds, openModal, closeModal } =
+    useApplicationData();
 
   return (
     <div className="App">
@@ -26,10 +19,10 @@ const App = () => {
         isFavPhotoExist={isFavPhotoExist}
         openModal={openModal}
       />
-      {displayModal && (
+      {state.displayModal && (
         <PhotoDetailsModal
-          selectedPhoto={selectedPhoto}
-          favoritePhotos={favoritePhotos}
+          selectedPhoto={state.selectedPhoto}
+          favoritePhotos={state.favoritePhotos}
           updateToFavPhotoIds={updateToFavPhotoIds}
           closeModal={closeModal}
         />
