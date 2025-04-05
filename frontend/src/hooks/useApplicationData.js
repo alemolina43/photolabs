@@ -68,17 +68,15 @@ export default function useApplicationData() {
   useEffect(() => {
     fetch("/api/photos")
       .then((response) => response.json())
-      .then((data) =>
-        dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data })
-      );
+      .then((data) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }))
+      .catch((err) => console.log(err));
   }, []);
 
   useEffect(() => {
     fetch("/api/topics")
       .then((response) => response.json())
-      .then((data) =>
-        dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data })
-      );
+      .then((data) => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }))
+      .catch((err) => console.log(err));
   }, []);
 
   const updateToFavPhotoIds = (photoId) => {
