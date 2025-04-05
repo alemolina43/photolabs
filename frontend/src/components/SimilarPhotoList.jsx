@@ -3,7 +3,7 @@ import "../styles/PhotoList.scss";
 
 const SimilarPhotoList = ({
   similarPhotosObject,
-  toggleFavorite,
+  updateToFavPhotoIds,
   favoritePhotos,
 }) => {
   // Convert the object of similar photos into an array
@@ -13,7 +13,7 @@ const SimilarPhotoList = ({
     <SimilarPhotoListItem
       key={photo.id}
       similarPhoto={photo}
-      toggleFavorite={toggleFavorite}
+      updateToFavPhotoIds={updateToFavPhotoIds}
       favoritePhotos={favoritePhotos}
     />
   ));

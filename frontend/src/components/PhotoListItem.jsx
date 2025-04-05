@@ -2,13 +2,14 @@ import { useState } from "react";
 import PhotoFavButton from "./PhotoFavButton";
 import "../styles/PhotoListItem.scss";
 
-const PhotoListItem = ({ photoData, toggleFavorite, openModal }) => {
+const PhotoListItem = ({ photoData, updateToFavPhotoIds, openModal }) => {
   const { id, urls, user, location } = photoData;
+
   const [selected, setSelected] = useState(false);
 
   const changeState = () => {
     setSelected((prevSelected) => !prevSelected);
-    toggleFavorite(id);
+    updateToFavPhotoIds(id);
   };
 
   const handlePhotoClick = () => {

@@ -1,12 +1,12 @@
 import PhotoListItem from "./PhotoListItem";
 import "../styles/PhotoList.scss";
 
-const PhotoList = ({ photos, toggleFavorite, openModal }) => {
+const PhotoList = ({ photos, updateToFavPhotoIds, openModal }) => {
   const parsedPhotos = photos.map((photoData) => (
     <PhotoListItem
       key={photoData.id}
       photoData={photoData}
-      toggleFavorite={toggleFavorite}
+      updateToFavPhotoIds={updateToFavPhotoIds}
       openModal={openModal}
     />
   ));

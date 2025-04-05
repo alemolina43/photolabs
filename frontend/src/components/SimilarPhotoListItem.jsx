@@ -2,13 +2,13 @@ import { useState } from "react";
 import PhotoFavButton from "./PhotoFavButton";
 import "../styles/PhotoListItem.scss";
 
-const SimilarPhotoListItem = ({ similarPhoto, toggleFavorite }) => {
+const SimilarPhotoListItem = ({ similarPhoto, updateToFavPhotoIds }) => {
   const { id, urls, user, location } = similarPhoto;
   const [selected, setSelected] = useState(false);
 
   const changeState = () => {
     setSelected((prevSelected) => !prevSelected);
-    toggleFavorite(id);
+    updateToFavPhotoIds(id);
   };
 
   return (

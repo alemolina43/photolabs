@@ -6,7 +6,7 @@ import SimilarPhotoList from "../components/SimilarPhotoList";
 const PhotoDetailsModal = ({
   selectedPhoto,
   closeModal,
-  toggleFavorite,
+  updateToFavPhotoIds,
   favoritePhotos,
 }) => {
   const handleButtonClick = () => {
@@ -26,18 +26,18 @@ const PhotoDetailsModal = ({
         <div className="photo-details-modal__images">
           <MainPhotoModal
             selectedPhoto={selectedPhoto}
-            toggleFavorite={toggleFavorite}
+            updateToFavPhotoIds={updateToFavPhotoIds}
             favoritePhotos={favoritePhotos}
           />
         </div>
-        <header className="photo-details-modal__header ">
+        <header className="photo-details-modal__header">
           <p>Similar Photos</p>
         </header>
 
         <SimilarPhotoList
           similarPhotosObject={selectedPhoto.similar_photos}
           favoritePhotos={favoritePhotos}
-          toggleFavorite={toggleFavorite}
+          updateToFavPhotoIds={updateToFavPhotoIds}
         />
       </div>
     </>
