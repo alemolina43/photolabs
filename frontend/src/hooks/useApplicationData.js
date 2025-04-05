@@ -2,7 +2,7 @@ import { useReducer, useEffect } from "react";
 
 const initialState = {
   photoData: [],
-  // topicData: [],
+  topicData: [],
   favoritePhotos: [],
   displayModal: false,
   selectedPhoto: null,
@@ -10,6 +10,7 @@ const initialState = {
 
 export const ACTIONS = {
   SET_PHOTO_DATA: "SET_PHOTO_DATA",
+  SET_TOPIC_DATA: "SET_TOPIC_DATA",
   FAV_PHOTO_ADDED: "FAV_PHOTO_ADDED",
   FAV_PHOTO_REMOVED: "FAV_PHOTO_REMOVED",
   OPEN_MODAL: "OPEN_MODAL",
@@ -23,6 +24,11 @@ function reducer(state, action) {
       return {
         ...state,
         photoData: action.payload,
+      };
+    case ACTIONS.SET_TOPIC_DATA:
+      return {
+        ...state,
+        topicData: action.payload,
       };
     case ACTIONS.FAV_PHOTO_ADDED:
       return {
@@ -67,6 +73,14 @@ export default function useApplicationData() {
       );
   }, []);
 
+  useEffect(() => {
+    fetch("/api/topics")
+      .then((response) => response.json())
+      .then((data) =>
+        dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data })
+      );
+  }, []);
+
   const updateToFavPhotoIds = (photoId) => {
     if (state.favoritePhotos.includes(photoId)) {
       dispatch({ type: ACTIONS.FAV_PHOTO_REMOVED, payload: photoId });
@@ -87,7 +101,6 @@ export default function useApplicationData() {
 
   return {
     state,
-    useEffect,
     updateToFavPhotoIds,
     openModal,
     closeModal,
