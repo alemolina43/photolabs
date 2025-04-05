@@ -1,13 +1,12 @@
-import topics from "./mocks/topics";
-import photos from "./mocks/photos";
 import HomeRoute from "./routes/HomeRoute";
+import topics from "./mocks/topics";
 import PhotoDetailsModal from "./routes/PhotoDetailsModal";
 import useApplicationData from "./hooks/useApplicationData";
 import "./App.scss";
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
-  const { state, updateToFavPhotoIds, openModal, closeModal } =
+  const { state, useEffect, updateToFavPhotoIds, openModal, closeModal } =
     useApplicationData();
 
   const isFavPhotoExist = state.favoritePhotos.length > 0; //if array.length is bigger than 0
@@ -16,7 +15,7 @@ const App = () => {
     <div className="App">
       <HomeRoute
         topics={topics}
-        photos={photos}
+        photos={state.photoData}
         updateToFavPhotoIds={updateToFavPhotoIds}
         isFavPhotoExist={isFavPhotoExist}
         openModal={openModal}
