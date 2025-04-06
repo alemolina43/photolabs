@@ -5,7 +5,7 @@ import "./App.scss";
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
-  const { state, updateToFavPhotoIds, openModal, closeModal } =
+  const { state, updateToFavPhotoIds, openModal, closeModal, selectTopic } =
     useApplicationData();
 
   const isFavPhotoExist = state.favoritePhotos.length > 0; //if array.length is bigger than 0
@@ -18,6 +18,7 @@ const App = () => {
         updateToFavPhotoIds={updateToFavPhotoIds}
         isFavPhotoExist={isFavPhotoExist}
         openModal={openModal}
+        selectTopic={selectTopic}
       />
       {state.displayModal && (
         <PhotoDetailsModal

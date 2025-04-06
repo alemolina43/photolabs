@@ -6,6 +6,7 @@ const initialState = {
   favoritePhotos: [],
   displayModal: false,
   selectedPhoto: null,
+  selectedTopic: null,
 };
 
 export const ACTIONS = {
@@ -16,6 +17,7 @@ export const ACTIONS = {
   OPEN_MODAL: "OPEN_MODAL",
   CLOSE_MODAL: "CLOSE_MODAL",
   SELECT_PHOTO: "SELECT_PHOTO",
+  GET_PHOTOS_BY_TOPICS: "GET_PHOTOS_BY_TOPICS",
 };
 
 function reducer(state, action) {
@@ -57,6 +59,11 @@ function reducer(state, action) {
         ...state,
         selectedPhoto: action.payload,
       };
+    case ACTIONS.GET_PHOTOS_BY_TOPICS:
+      return {
+        ...state,
+        selectedTopic: action.payload,
+      };
     default:
       return state;
   }
@@ -79,6 +86,22 @@ export default function useApplicationData() {
       .catch((err) => console.log(err));
   }, []);
 
+  useEffect(() => {
+    if (state.selectedTopic) {
+      const topicId = state.selectedTopic;
+      fetch(`/api/topics/${topicId}/photos`)
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [state.selectedTopic, dispatch]);
+
   const updateToFavPhotoIds = (photoId) => {
     if (state.favoritePhotos.includes(photoId)) {
       dispatch({ type: ACTIONS.FAV_PHOTO_REMOVED, payload: photoId });
@@ -97,10 +120,15 @@ export default function useApplicationData() {
     dispatch({ type: ACTIONS.SELECT_PHOTO, payload: null });
   };
 
+  const selectTopic = (topicId) => {
+    dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: topicId });
+  };
+
   return {
     state,
     updateToFavPhotoIds,
     openModal,
     closeModal,
+    selectTopic,
   };
 }

@@ -8,10 +8,15 @@ const HomeRoute = ({
   updateToFavPhotoIds,
   isFavPhotoExist,
   openModal,
+  selectTopic,
 }) => {
   return (
     <div className="home-route">
-      <TopNavigation topics={topics} isFavPhotoExist={isFavPhotoExist} />
+      <TopNavigation
+        topics={topics}
+        isFavPhotoExist={isFavPhotoExist}
+        selectTopic={selectTopic}
+      />
       <PhotoList
         photos={photos}
         updateToFavPhotoIds={updateToFavPhotoIds}
