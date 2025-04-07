@@ -1,4 +1,3 @@
-import { useState } from "react";
 import PhotoFavButton from "./PhotoFavButton";
 
 const MainPhotoModal = ({

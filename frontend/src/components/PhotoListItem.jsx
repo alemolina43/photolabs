@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import PhotoFavButton from "./PhotoFavButton";
 import "../styles/PhotoListItem.scss";
 
