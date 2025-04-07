@@ -16,6 +16,7 @@ div.photo-list__item {
   }
 
   div.photo-list__user-details {
+    margin-top: 5px;
     display: flex;
 
     img.photo-list__user-profile {
@@ -26,7 +27,7 @@ div.photo-list__item {
       width: 40px;
       height: 40px;
     }
-    
+
     div.photo-list__user-info {
       margin-top: 5px;
       font-weight: 700;

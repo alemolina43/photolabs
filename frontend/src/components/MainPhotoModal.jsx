@@ -12,12 +12,14 @@ const MainPhotoModal = ({
 
   return (
     <>
-      <PhotoFavButton selected={isFavorited} changeState={changeState} />
-      <img
-        src={urls.regular}
-        alt={urls.regular}
-        className="photo-details-modal__image"
-      />
+      <div className="photo_container">
+        <PhotoFavButton selected={isFavorited} changeState={changeState} />
+        <img
+          src={urls.regular}
+          alt={urls.regular}
+          className="photo-details-modal__image"
+        />
+      </div>
       <div className="photo-details-modal__photographer-details">
         <img
           src={user.profile}

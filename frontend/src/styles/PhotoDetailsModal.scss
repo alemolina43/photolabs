@@ -29,6 +29,14 @@
   margin-top: 8px;
 }
 
+.photo_container {
+  display: block;
+  margin: auto;
+  width: 80%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
 .photo-details-modal__image {
   max-width: 95%;
   border-radius: 8px;
@@ -52,10 +60,11 @@
   font-size: 18px;
   font-weight: 500;
   color: #1e1e1e;
-  margin-top: 24px;
-  margin-bottom: 24px;
-  margin-left: 24px; //ask mentor about this margin
+  margin-top: 30px;
+  margin-bottom: 0 px;
+  margin-left: 24px;
   width: 90%;
+  border-top: 1px solid gray;
 }
 
 .photo-details-modal__photographer-location {
