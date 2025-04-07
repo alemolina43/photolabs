@@ -20,6 +20,7 @@ const App = () => {
         openModal={openModal}
         selectTopic={selectTopic}
       />
+      {/* conditional rendering: only when a photo is clicked */}
       {state.displayModal && (
         <PhotoDetailsModal
           selectedPhoto={state.selectedPhoto}

@@ -74,14 +74,24 @@ export default function useApplicationData() {
 
   useEffect(() => {
     fetch("/api/photos")
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Failed to fetch photos: ${response.status}`);
+        }
+        return response.json();
+      })
       .then((data) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }))
       .catch((err) => console.log(err));
   }, []);
 
   useEffect(() => {
     fetch("/api/topics")
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Failed to fetch topics: ${response.status}`);
+        }
+        return response.json();
+      })
       .then((data) => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }))
       .catch((err) => console.log(err));
   }, []);
@@ -91,6 +101,11 @@ export default function useApplicationData() {
       const topicId = state.selectedTopic;
       fetch(`/api/topics/${topicId}/photos`)
         .then((response) => {
+          if (!response.ok) {
+            throw new Error(
+              `Failed to fetch photos for this topic: ${response.status}`
+            );
+          }
           return response.json();
         })
         .then((data) => {
@@ -102,6 +117,7 @@ export default function useApplicationData() {
     }
   }, [state.selectedTopic, dispatch]);
 
+  //add or remove photos from FavPhotos when clicked
   const updateToFavPhotoIds = (photoId) => {
     if (state.favoritePhotos.includes(photoId)) {
       dispatch({ type: ACTIONS.FAV_PHOTO_REMOVED, payload: photoId });
@@ -120,6 +136,7 @@ export default function useApplicationData() {
     dispatch({ type: ACTIONS.SELECT_PHOTO, payload: null });
   };
 
+  //load photos based on selected topic
   const selectTopic = (topicId) => {
     dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: topicId });
   };

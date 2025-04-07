@@ -4,6 +4,7 @@ import "../styles/PhotoListItem.scss";
 
 const SimilarPhotoListItem = ({ similarPhoto, updateToFavPhotoIds }) => {
   const { id, urls, user, location } = similarPhoto;
+  //manage state of button locally
   const [selected, setSelected] = useState(false);
 
   const changeState = () => {
@@ -15,7 +16,7 @@ const SimilarPhotoListItem = ({ similarPhoto, updateToFavPhotoIds }) => {
     <div className="photo-list__item">
       <PhotoFavButton selected={selected} changeState={changeState} />
       <img
-        src={urls.thumb || urls.small || urls.regular}
+        src={urls.regular}
         alt={`Similar to ${id}`}
         className="photo-list__image"
       />
