@@ -19,6 +19,7 @@ const App = () => {
         isFavPhotoExist={isFavPhotoExist}
         openModal={openModal}
         selectTopic={selectTopic}
+        favoritePhotos={state.favoritePhotos}
       />
       {/* conditional rendering: only when a photo is clicked */}
       {state.displayModal && (

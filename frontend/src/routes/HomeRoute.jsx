@@ -9,6 +9,7 @@ const HomeRoute = ({
   isFavPhotoExist,
   openModal,
   selectTopic,
+  favoritePhotos,
 }) => {
   return (
     <div className="home-route">
@@ -21,6 +22,7 @@ const HomeRoute = ({
         photos={photos}
         updateToFavPhotoIds={updateToFavPhotoIds}
         openModal={openModal}
+        favoritePhotos={favoritePhotos}
       />
     </div>
   );

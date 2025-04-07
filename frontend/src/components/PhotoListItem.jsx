@@ -1,24 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PhotoFavButton from "./PhotoFavButton";
 import "../styles/PhotoListItem.scss";
 
-const PhotoListItem = ({ photoData, updateToFavPhotoIds, openModal }) => {
+const PhotoListItem = ({
+  photoData,
+  updateToFavPhotoIds,
+  openModal,
+  favoritePhotos,
+}) => {
   const { id, urls, user, location } = photoData;
-
-  const [selected, setSelected] = useState(false);
-
-  const changeState = () => {
-    setSelected((prevSelected) => !prevSelected);
-    updateToFavPhotoIds(id);
-  };
+  const isFavorited = favoritePhotos.includes(id);
 
   const handlePhotoClick = () => {
     openModal(photoData);
   };
 
+  const changeState = () => updateToFavPhotoIds(id);
+
   return (
     <div className="photo-list__item" onClick={handlePhotoClick}>
-      <PhotoFavButton selected={selected} changeState={changeState} />
+      <PhotoFavButton selected={isFavorited} changeState={changeState} />
       <img
         src={urls.regular}
         alt={urls.regular}
