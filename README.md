@@ -4,7 +4,7 @@ PhotoLab is a react-based web application that allows users to browse and favori
 
 ## Table of contents
 
-- [Features] (#features)
+- [Features](#features)
 - [Setup and Installation](#setup-and-installation)
   - [Server Setup](#server-setup)
 - [Backend API](#backend-api)
@@ -44,7 +44,7 @@ This application relies on a backend API to fetch photos and topics. The API end
 
 ## Final Product
 
-!["Main page"]()
-!["Modal"]()
-!["Photos by category"]()
-!["Like notification"]()
+!["Main page"](https://raw.githubusercontent.com/alemolina43/photolabs/refs/heads/main/docs/Main_page.png)
+!["Modal"](https://raw.githubusercontent.com/alemolina43/photolabs/refs/heads/main/docs/Modal.png)
+!["Photos by category"](https://raw.githubusercontent.com/alemolina43/photolabs/refs/heads/main/docs/Photos_by_category.png)
+!["Like notification"](https://raw.githubusercontent.com/alemolina43/photolabs/refs/heads/main/docs/Like_notification.png)
