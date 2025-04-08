@@ -1,5 +1,6 @@
-import SimilarPhotoListItem from "./SimilarPhotoListItem";
+// import SimilarPhotoListItem from "./SimilarPhotoListItem";
 import "../styles/PhotoList.scss";
+import PhotoListItem from "./PhotoListItem";
 
 const SimilarPhotoList = ({
   similarPhotosObject,
@@ -10,9 +11,9 @@ const SimilarPhotoList = ({
   const similarPhotosArray = Object.values(similarPhotosObject);
 
   const parsedSimilar = similarPhotosArray.map((photo) => (
-    <SimilarPhotoListItem
+    <PhotoListItem
       key={photo.id}
-      similarPhoto={photo}
+      photoData={photo}
       updateToFavPhotoIds={updateToFavPhotoIds}
       favoritePhotos={favoritePhotos}
     />
