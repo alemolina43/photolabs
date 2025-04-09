@@ -1,7 +1,6 @@
 import "../styles/PhotoDetailsModal.scss";
 import closeSymbol from "../assets/closeSymbol.svg";
 import MainPhotoModal from "../components/MainPhotoModal";
-// import SimilarPhotoList from "../components/SimilarPhotoList";
 import PhotoList from "../components/PhotoList";
 
 const PhotoDetailsModal = ({
