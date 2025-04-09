@@ -22,7 +22,7 @@ PhotoLab is a react-based web application that allows users to browse and favori
 **Clone the repository:**
 
     ```bash
-    git clone [https://github.com/alemolina43/photolabs.git]
+    git clone [https://github.com/alemolina43/photolabs.git]git
     cd into your cloned repo
     ```
 
